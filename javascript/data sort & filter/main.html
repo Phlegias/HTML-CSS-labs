@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <script src="program.js" type="module"></script>
+        <script src="data.js" type="module"></script>
+    </head>
+    <body>
+        <details><summary>Фильтр</summary>
+            <form id="filter-settings">
+                <p>
+                    <label for="name"> Наименование: </label>
+                    <input type="text" id="name" size="30">
+                </p>
+                <p>
+                    <label for="type"> Тип оружия: </label>
+                    <input type="text" id="type" size="30" >
+                <p>
+                <p>
+                    <label for="lengthFrom"> Длина: </label> 
+                    от <input id="lengthFrom" type="number">
+                    до <input id="lengthTo" type="number"> 
+                </p>
+
+                <p>
+                    <label for="distant">Дистанция: </label>
+                    <input id="distant" type="text">
+                </p>
+
+                <p>
+                    <label for="weightFrom"> Вес: </label> 
+                    от <input id="weightFrom" type="number">
+                    до <input id="weightTo" type="number">
+                </p>
+                <p>
+                    <label for="damage"> Урон: </label> 
+                    <input id="damage" type="text" size="30">
+                </p>
+                <p>
+                    <label for="country"> Происхождение: </label> 
+                    <input id="country" type="text" size="30">
+                </p>
+                <p>
+                    <label for="material"> Материал: </label>
+                    <input id="material" type="text" size="30">
+                </p>
+                <p>
+                    <label for="timeFrom"> Время: </label>
+                    от <input id="timeFrom" type="number">
+                    до <input id="timeTo" type="number">
+                </p>
+                <p>
+                    <input id="filter" type="button" value="Найти">
+                    <input id="clear-filters"type="reset" value="Очистить">
+                </p>
+            </form>
+        </details>
+        <details><summary>Сортировки</summary>
+            <form id="sort-settings">
+                <p> Первый уровень
+                    <select id="sort1" name="sort1"></select> по убыванию?
+                    <input type="checkbox" id="sort1Desc" name="var" value="0">
+                </p>
+                <p> Второй уровень
+                    <select id="sort2" name="sort2"></select> по убыванию?
+                    <input type="checkbox" id="sort2Desc" name="var" value="0">
+                </p>
+                <input id="sort" type="button" value="Сортировать">
+                <input id="clear-sort" type="button" value="Сбросить сортировку">
+            </form> 
+
+        </details>
+        <h1>Таблица</h1>
+        <table>
+            <thead align="center">
+                <tr>
+                  <td>Наименование</td>
+                  <td>Тип оружия</td>
+                  <td>Длина</td>
+                  <td>Дистанция</td>
+                  <td>Вес</td>
+                  <td>Урон</td>
+                  <td>Происхождение</td>
+                  <td>Материал</td>
+                  <td>Время</td>
+                </tr>
+            </thead>
+            <tbody id="megatable"></tbody>
+        </table>
+    </body>
