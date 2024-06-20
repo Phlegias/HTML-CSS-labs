@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <script src="calc.js"></script>
+    <link rel="stylesheet" href="calc.css">
+</head>
+<body>
+    <h1>Калькулятор дробей</h1>
+    <form id="type_of_fractures">
+        <select name="fractional_type">
+            <option value="fractional"> Дробно </option>
+            <option value="mixed" selected> Смешанно </option>
+            <input type="button" name="view_type" value="Показать"
+          onclick = "changeForm(this.form)">
+        </select>
+    </form>
+
+    <form id="fractional" class="hidden">
+        <input type="number" name="dividend1" placeholder="числитель"><br>
+        <input type="number" name="divider1" placeholder="знаменатель">
+        <br><br>
+        <select name="action">
+            <option value="+"> Сложение </option>
+            <option value="-"> Вычитание </option>
+            <option value="/"> Деление </option>
+        </select>
+        <br><br>
+        <input type="number" name="dividend2" placeholder="числитель"><br>
+        <input type="number" name="divider2"placeholder="знаменатель"><br>
+        <p>
+            <input type="button" name="calc_fractional" value="Вычислить"
+          onclick = "fractionalCalc(this.form)">
+          <input type="button" value="Очистить"
+          onclick="clearData()">
+        </p>
+        <div id="1"></div>
+    </form>
+
+    <br>
+
+    <form id="mixed" class="hidden">
+        <input type="number" name="dividend1" placeholder="числитель">
+        <input type="number" name="integer1" placeholder="целое"><br>
+        <input type="number" name="divider1" placeholder="знаменатель">
+        <br><br>
+        <select name="action">
+            <option value="+"> Сложение </option>
+            <option value="-"> Вычитание </option>
+            <option value="/"> Деление </option>
+        </select>
+        <br><br>
+        <input type="number" name="dividend2" placeholder="числитель">
+        <input type="number" name="integer2" placeholder="целое"><br>
+        <input type="number" name="divider2" placeholder="знаменатель"><br>
+        <p>
+            <input type="button" name="calc_mixed" value="Вычислить"
+          onclick = "mixedCalc(this.form)">
+          <input type="button" value="Очистить"
+          onclick="clearData()">
+        </p>  
+        <div id="2"></div>
+    </form>
+  </body>

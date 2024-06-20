@@ -1,0 +1,8 @@
+.hidden {
+    display: none;
+}
+
+.error {
+    border: solid thin red;
+   }
+   
