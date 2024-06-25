@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <script src="http://d3js.org/d3.v7.min.js"> </script>
+        <style>
+            svg path, line {
+                fill: none;
+                stroke: black;
+                width: 1px;
+            }
+            svg text {
+                font: 8px Verdana;
+            }
+        </style>
+        <meta charset="UTF-8">
+        <script src="sort.js" type="module"></script>
+        <script src="filter.js" type="module"></script>
+        <script src="plot.js" type="module"></script>
+        <script src="data.js" type="module"></script>
+    </head>
+    <body>
+        <details><summary>Фильтр</summary>
+            <h1>Фильтр</h1>
+            <form id="filter-settings">
+                <p>
+                    <label for="name"> Наименование: </label>
+                    <input type="text" id="name" size="30">
+                </p>
+                <p>
+                    <label for="type"> Тип оружия: </label>
+                    <input type="text" id="type" size="30" >
+                <p>
+                <p>
+                    <label for="lengthFrom"> Длина: </label> 
+                    от <input id="lengthFrom" type="number">
+                    до <input id="lengthTo" type="number"> 
+                </p>
+
+                <p>
+                    <label for="distant">Дистанция: </label>
+                    <input id="distant" type="text">
+                </p>
+
+                <p>
+                    <label for="weightFrom"> Вес: </label> 
+                    от <input id="weightFrom" type="number">
+                    до <input id="weightTo" type="number">
+                </p>
+                <p>
+                    <label for="damage"> Урон: </label> 
+                    <input id="damage" type="text" size="30">
+                </p>
+                <p>
+                    <label for="country"> Происхождение: </label> 
+                    <input id="country" type="text" size="30">
+                </p>
+                <p>
+                    <label for="material"> Материал: </label>
+                    <input id="material" type="text" size="30">
+                </p>
+                <p>
+                    <label for="timeFrom"> Время: </label>
+                    от <input id="timeFrom" type="number">
+                    до <input id="timeTo" type="number">
+                </p>
+                <p>
+                    <input id="filter" type="button" value="Найти">
+                    <input id="clear-filters"type="reset" value="Очистить">
+                </p>
+            </form>
+        </details>
+        <details><summary>Сортировка</summary>
+            <h1>Сортировка</h1>
+            <form id="sort-settings">
+                <p> Первый уровень
+                    <select id="sort1" name="sort1"></select> по убыванию?
+                    <input type="checkbox" id="sort1Desc" name="var" value="0">
+                </p>
+                <p> Второй уровень
+                    <select id="sort2" name="sort2"></select> по убыванию?
+                    <input type="checkbox" id="sort2Desc" name="var" value="0">
+                </p>
+                <input id="sort" type="button" value="Сортировать">
+                <input id="clear-sort" type="button" value="Сбросить сортировку">
+            </form> 
+        </details>
+        <details><summary>Таблица</summary>
+            <h1>Таблица</h1>
+            <div class="table">
+                <table>
+                    <thead align="center">
+                        <tr>
+                          <td>Наименование</td>
+                          <td>Тип оружия</td>
+                          <td>Длина</td>
+                          <td>Дистанция</td>
+                          <td>Вес</td>
+                          <td>Урон</td>
+                          <td>Происхождение</td>
+                          <td>Материал</td>
+                          <td>Время</td>
+                        </tr>
+                    </thead>
+                    <tbody id="megatable"></tbody>
+                </table>
+            </div>
+        </details>
+        <details open="open"><summary>График</summary>
+            <h1>График</h1>
+            <form id="plot">
+                <p>Значение по оси OX</p>
+                <input id="ox-country" type="radio" name="ox" value="Происхождение" checked>Страна<br>
+                <input id="ox-time" type="radio" name="ox" value="Время">Век<br>
+                <input id="ox-type" type="radio" name="ox" value="Тип оружия">Тип оружия<br>
+                <p>Значение по оси OY</p>
+                <input id="oy-max-length" type="checkbox" name="oy" value="Длина, см-макс" checked>Максимальная длина<br>
+                <input id="oy-min-length" type="checkbox" name="oy" value="Длина, см-мин">Минимальная длина<br>
+                <input id="oy-max-weight" type="checkbox" name="oy" value="Вес, кг-макс">Максимальный вес<br>
+                <input id="oy-min-weight" type="checkbox" name="oy" value="Вес, кг-мин">Минимальный вес<br>
+                <p id="plot-type">Тип графика</p>
+                <input id="dot-type" type="radio" name="quest_3" value="Точки" checked>Точки<br>
+                <input id="pillar-type" type="radio" name="quest_3" value="Столбики">Столбики
+                <p>
+                    <input id="draw" type="button" value="Построить">
+                </p>
+            </form>
+            <svg></svg>
+        </details>  
+    </body>
